@@ -1,7 +1,12 @@
 var gameData = { 
     Power: 0,
     PowerPerClick: 1,
-    PowerPerClickCost: 10
+    PowerPerClickCost: 10,
+    
+    Agility: 0,
+    AgilityPerClick: 1,
+    AgilityPerClickCost: 11,
+
 }
 
 function getPower() {
@@ -16,6 +21,21 @@ function buyPowerPerClick () {
         gameData.PowerPerClickCost *= 2
         document.getElementById("PowerGained").innerHTML = gameData.Power + " Power Gained"
         document.getElementById("perClickUpgrade").innerHTML = "Upgrade Weight Training (current level " + gameData.PowerPerClick + ") Cost: " + gameData.PowerPerClickCost + " Power"  
+    }
+}
+
+function getAgility() {
+    gameData.Agility += gameData.AgilityPerClick
+    document.getElementById("AgilityGained").innerHTML = gameData.Agility + "Agility"
+}
+
+function buyAgilityPerClick () {
+    if (gameData.Agility >= gameData.AgilityPerClickCost) {
+        gameData.Agility -= gameData.AgilityPerClickCost
+        gameData.AgilityPerClick += 1
+        gameData.AgilityPerClickCost *= 2
+        document.getElementById("AgilityGained").innerHTML = gameData.Agility + " Agility Gained"
+        document.getElementById("AgilityperClickUpgrade").innerHTML = "Upgrade Agility Training (current level " + gameData.AgilityPerClick + ") Cost: " + gameData.AgilityPerClickCost + " Power"  
     }
 }
 
