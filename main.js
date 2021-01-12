@@ -41,6 +41,7 @@ function buyAgilityPerClick () {
 
 var mainGameLoop = window.setInterval(function() {
     getPower()
+    getAgility()
 }, 1000)
 
 var saveGameLoop = window.setInterval(function() {
